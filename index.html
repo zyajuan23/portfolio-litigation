@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张疋娟 · Legal Writing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f2ede4;
+  --bg2: #ebe5da;
+  --ink: #1c1a17;
+  --ink2: #4a4640;
+  --ink3: #8a8480;
+  --red: #7a2020;
+  --green: #2a4a38;
+  --line: rgba(28,26,23,0.12);
+  --serif: 'EB Garamond', 'Noto Serif SC', serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.75; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(242,237,228,0.93); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line); z-index: 100;
+  padding: 0 60px; display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.nav-name { font-size: 15px; letter-spacing: 3px; color: var(--ink2); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; letter-spacing: 1.5px; color: var(--ink3); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+
+.hero { padding: 140px 60px 80px; max-width: 960px; margin: 0 auto; border-bottom: 1px solid var(--line); }
+.hero-eyebrow { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink3); margin-bottom: 24px; }
+.hero-name { font-size: clamp(40px,6vw,72px); font-weight: 400; letter-spacing: 2px; line-height: 1.1; margin-bottom: 8px; }
+.hero-name em { font-style: italic; color: var(--ink2); font-size: .65em; letter-spacing: 4px; display: block; margin-top: 6px; }
+.hero-desc { margin-top: 28px; max-width: 560px; font-size: 16px; color: var(--ink2); line-height: 1.85; }
+.hero-creds { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
+.cred-pill { font-size: 12px; letter-spacing: 1.5px; border: 1px solid var(--line); padding: 5px 14px; color: var(--ink2); }
+
+main { max-width: 960px; margin: 0 auto; padding: 0 60px 120px; }
+
+.sec-header { padding: 72px 0 40px; border-bottom: 1px solid var(--line); }
+.sec-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; }
+.sec-title { font-size: 13px; letter-spacing: 2px; color: var(--ink2); }
+
+.work-card { border-bottom: 1px solid var(--line); padding: 52px 0; }
+.work-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; margin-bottom: 32px; }
+.work-tag { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.work-title { font-size: clamp(18px,2.5vw,26px); font-weight: 400; letter-spacing: .5px; line-height: 1.3; margin-bottom: 10px; }
+.work-subtitle { font-size: 14px; font-style: italic; color: var(--ink3); margin-bottom: 20px; }
+.work-desc { font-size: 15px; color: var(--ink2); line-height: 1.9; max-width: 600px; }
+.work-meta { text-align: right; }
+.work-year { font-size: 13px; color: var(--ink3); letter-spacing: 1px; display: block; margin-bottom: 12px; }
+.work-lang { display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--line); padding: 3px 10px; color: var(--ink3); }
+.dl-btn {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green); border: 1px solid var(--green); padding: 7px 18px;
+  text-decoration: none; transition: background .2s, color .2s;
+}
+.dl-btn:hover { background: var(--green); color: #f2ede4; }
+.dl-btn svg { width: 12px; height: 12px; }
+
+.logic-block { background: var(--bg2); padding: 32px 36px; margin-top: 28px; }
+.logic-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink3); margin-bottom: 20px; }
+.logic-steps { list-style: none; counter-reset: step; }
+.logic-steps li {
+  counter-increment: step;
+  display: flex; gap: 20px;
+  padding: 12px 0; border-top: 1px solid var(--line);
+  font-size: 14px; color: var(--ink2); line-height: 1.7;
+}
+.logic-steps li:first-child { border-top: none; padding-top: 0; }
+.logic-steps li::before {
+  content: counter(step,upper-roman);
+  font-size: 11px; letter-spacing: 1px; color: var(--ink3);
+  padding-top: 3px; flex-shrink: 0; min-width: 24px;
+}
+
+.icc-charges { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 28px; }
+.charge-box { background: var(--bg2); padding: 20px 24px; }
+.charge-cat { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.charge-name { font-size: 14px; color: var(--ink); line-height: 1.5; }
+.charge-art { font-size: 12px; color: var(--ink3); font-style: italic; margin-top: 4px; }
+
+.liability-table { width: 100%; border-collapse: collapse; margin-top: 28px; font-size: 14px; }
+.liability-table th { text-align: left; font-weight: 400; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); padding: 10px 16px; border-bottom: 1px solid var(--ink2); }
+.liability-table td { padding: 14px 16px; border-bottom: 1px solid var(--line); color: var(--ink2); vertical-align: top; }
+.liability-table tr:last-child td { border-bottom: none; }
+.liability-table td:first-child { color: var(--ink); }
+.pct { font-size: 20px; color: var(--ink); font-style: italic; }
+
+.about-wrap { max-width: 960px; margin: 0 auto; padding: 0 60px 80px; border-top: 1px solid var(--line); }
+footer { border-top: 1px solid var(--line); padding: 48px 60px; max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-name { font-size: 14px; letter-spacing: 3px; color: var(--ink2); }
+.footer-contact { font-size: 13px; color: var(--ink3); text-align: right; line-height: 1.9; }
+.footer-contact a { color: var(--ink2); text-decoration: none; }
+
+.fade { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.fade.in { opacity: 1; transform: none; }
+
+@media (max-width:680px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero, main, .about-wrap, footer { padding-left: 24px; padding-right: 24px; }
+  .work-top { grid-template-columns: 1fr; }
+  .work-meta { text-align: left; }
+  .icc-charges { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 20px; }
+  .footer-contact { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">张疋娟 · Yajuan Zhang</span>
+  <div class="nav-links">
+    <a href="#icc">ICC 检察意见</a>
+    <a href="#civil">民事文书</a>
+    <a href="#about">关于</a>
+  </div>
+</nav>
+
+<div class="hero fade">
+  <div class="hero-eyebrow">Legal Writing Portfolio · Dispute Resolution</div>
+  <h1 class="hero-name">张疋娟<em>Yajuan Zhang</em></h1>
+  <p class="hero-desc">
+    布里斯托大学国际商法法学硕士（2026），法律职业资格（A类）。
+    本作品集收录争议解决方向的法律文书写作样本，包括国际刑事模拟法庭检察方书面意见及民商事诉讼文书，
+    旨在展示法律论证构建、文书写作与法条检索能力。
+  </p>
+  <div class="hero-creds">
+    <span class="cred-pill">法律职业资格（A类）</span>
+    <span class="cred-pill">CIPP/E · 欧盟隐私合规</span>
+    <span class="cred-pill">PTE 74（雅思同等 7.5–8.0）</span>
+    <span class="cred-pill">布里斯托大学 LLM 2026</span>
+    <span class="cred-pill">ICC 模拟法庭特殊贡献奖</span>
+  </div>
+</div>
+
+<main>
+
+  <div class="sec-header fade" id="icc">
+    <div class="sec-label">01 · 国际刑事</div>
+    <div class="sec-title">ICC 中文模拟法庭大赛 · 检察方书面意见</div>
+  </div>
+
+  <div class="work-card fade">
+    <div class="work-top">
+      <div>
+        <div class="work-tag">Prosecution Memorial · 上诉分庭</div>
+        <h2 class="work-title">检察官诉艾耿·梅格案</h2>
+        <p class="work-subtitle">国际刑事法院中文模拟法庭大赛 · 2022 · 全国 87 支队伍参赛</p>
+        <p class="work-desc">
+          检察方就被告人艾耿·梅格向上诉分庭提交的书面意见。梅格系伊宾共和国国家安全顾问，
+          被指控向夸斯秘密提供精准猎杀无人机，致使平民伤亡逾千人。
+          书面意见从管辖权、危害人类罪、战争罪及共犯责任四个层次构建完整检控论点，
+          援引《罗马规约》及 ICC、ICTY、ICTR 三大刑事法庭判例，共计脚注逾 88 处。
+        </p>
+        <a class="dl-btn" href="ICC_Prosecution_Memorial_2022.pdf" download>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+          下载完整文书 PDF
+        </a>
+      </div>
+      <div class="work-meta">
+        <span class="work-year">2022</span>
+        <span class="work-lang">中文</span>
+      </div>
+    </div>
+
+    <div class="logic-block">
+      <div class="logic-label">论证结构 · 五项争议焦点</div>
+      <ol class="logic-steps">
+        <li>管辖权——持续性犯罪理论：梅格提供武器及培训的行为持续至《罗马规约》对伊宾生效后，ICC 对其具有属时与属人管辖权</li>
+        <li>危害人类罪（Art. 7）——广泛或有系统攻击平民的背景要件、政策要件、"系统性"与"广泛性"标准均已满足，成立谋杀、灭绝及其他不人道行为</li>
+        <li>战争罪（Art. 8）——夸斯与泰沃什海盗之间存在非国际性武装冲突；无人机攻击学校、医院等受保护建筑，构成故意袭击平民及受保护建筑罪</li>
+        <li>协助共犯责任（Art. 25.3.3）——梅格提供无人机及远程培训构成客观协助行为；其对协助平民伤亡具有主观明知，满足主客观要件</li>
+        <li>严重性标准（Art. 17.1.4）及证明责任——逾千名无辜平民死亡符合 ICC 严重性门槛；检方证据具有证明价值、相关性与可采性</li>
+      </ol>
+    </div>
+
+    <div class="icc-charges">
+      <div class="charge-box">
+        <div class="charge-cat">危害人类罪</div>
+        <div class="charge-name">谋杀</div>
+        <div class="charge-art">Art. 7.1(1) · Rome Statute</div>
+      </div>
+      <div class="charge-box">
+        <div class="charge-cat">危害人类罪</div>
+        <div class="charge-name">灭绝</div>
+        <div class="charge-art">Art. 7.1(2) · Rome Statute</div>
+      </div>
+      <div class="charge-box">
+        <div class="charge-cat">危害人类罪</div>
+        <div class="charge-name">其他不人道行为</div>
+        <div class="charge-art">Art. 7.1(11) · Rome Statute</div>
+      </div>
+      <div class="charge-box">
+        <div class="charge-cat">战争罪</div>
+        <div class="charge-name">故意袭击平民</div>
+        <div class="charge-art">Art. 8.2(5)(i) · Rome Statute</div>
+      </div>
+      <div class="charge-box">
+        <div class="charge-cat">战争罪</div>
+        <div class="charge-name">故意袭击受保护建筑</div>
+        <div class="charge-art">Art. 8.2(5)(iv) · Rome Statute</div>
+      </div>
+      <div class="charge-box">
+        <div class="charge-cat">共犯责任</div>
+        <div class="charge-name">协助国际犯罪</div>
+        <div class="charge-art">Art. 25.3(3) · Rome Statute</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-header fade" id="civil">
+    <div class="sec-label">02 · 民事诉讼</div>
+    <div class="sec-title">侵权责任 · 诉讼文书三份</div>
+  </div>
+
+  <!-- 判决书 -->
+  <div class="work-card fade">
+    <div class="work-top">
+      <div>
+        <div class="work-tag">民事判决书 · 裁判者视角</div>
+        <h2 class="work-title">丁诉甲乙丙交通事故人身损害赔偿案</h2>
+        <p class="work-subtitle">试驾场景 · 多被告责任分配 · 格式条款效力认定</p>
+        <p class="work-desc">
+          原告丁正常过马路时被试驾车辆撞伤，涉及车主（甲）、驾驶人（乙）、经销商（丙）三方责任划分。
+          核心争议包括：朋友陪驾是否构成"帮工关系"（情谊行为认定）；
+          经销商试驾行为的法律定性（消费者关系 vs. 所有人管理人）；
+          《试乘试驾协议》人身损害免责条款的效力（民法典第 506 条）。
+        </p>
+        <a class="dl-btn" href="交通事故人身损害赔偿判决书.pdf" download>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+          下载判决书 PDF
+        </a>
+      </div>
+      <div class="work-meta">
+        <span class="work-year">2023</span>
+        <span class="work-lang">中文</span>
+      </div>
+    </div>
+
+    <table class="liability-table">
+      <thead>
+        <tr>
+          <th>当事人</th><th>身份认定</th><th>责任比例</th><th>赔偿金额</th><th>法律依据</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>甲（车主）</td>
+          <td>情谊行为委托方，无直接过错</td>
+          <td><span class="pct">0%</span></td>
+          <td>—</td>
+          <td>情谊行为理论；民法典 1209</td>
+        </tr>
+        <tr>
+          <td>乙（驾驶人）</td>
+          <td>实际驾驶人，未确保行车安全</td>
+          <td><span class="pct">70%</span></td>
+          <td>¥105,000 + 律师费 70%</td>
+          <td>道交法 76；民法典 1208</td>
+        </tr>
+        <tr>
+          <td>丙（经销商）</td>
+          <td>营销行为提供方，未尽安全保障义务</td>
+          <td><span class="pct">30%</span></td>
+          <td>¥45,000 + 律师费 30%</td>
+          <td>消保法 18；民法典 506</td>
+        </tr>
+        <tr>
+          <td>丁（原告）</td>
+          <td>绿灯合法行人，无过错</td>
+          <td><span class="pct">0%</span></td>
+          <td>受偿 ¥150,000</td>
+          <td>道路交通安全法实施条例 39</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="logic-block" style="margin-top:16px;">
+      <div class="logic-label">三项核心法律问题</div>
+      <ol class="logic-steps">
+        <li><strong>情谊行为认定：</strong>乙帮甲驾驶系基于朋友情感的情谊行为，不属于民事法律行为，甲不应作为"被帮工人"承担替代责任</li>
+        <li><strong>试驾法律关系定性：</strong>经销商提供试驾属于营销行为，机动车占有未移转；丙与甲乙系消费者与经营者关系，依消保法第 18 条负有安全保障义务</li>
+        <li><strong>免责条款效力：</strong>《试乘试驾协议》将人身损害责任转移给试驾者的条款，依民法典第 506 条认定无效</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 答辩状 -->
+  <div class="work-card fade">
+    <div class="work-top">
+      <div>
+        <div class="work-tag">民事答辩状 · 被告方视角</div>
+        <h2 class="work-title">爆竹致伤案 · 被告三答辩状</h2>
+        <p class="work-subtitle">产品质量 · 因果关系抗辩 · 多被告责任分散</p>
+        <p class="work-desc">
+          原告卢超因燃放爆竹受伤，起诉生产商及其他被告。
+          本答辩状代理生产商杨昌翔（被告三），以产品无缺陷、因果关系断裂为主线，
+          同时就监护人、共同被告卢星明及葛道银的各自过错构建分散抗辩。
+        </p>
+        <a class="dl-btn" href="爆竹案被告三答辩状.docx" download>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+          下载答辩状 DOCX
+        </a>
+      </div>
+      <div class="work-meta">
+        <span class="work-year">2023</span>
+        <span class="work-lang">中文</span>
+      </div>
+    </div>
+
+    <div class="logic-block">
+      <div class="logic-label">抗辩逻辑</div>
+      <ol class="logic-steps">
+        <li><strong>产品无缺陷，因果关系断裂：</strong>产品包装载有操作说明及警示；事故系受害人将爆竹置于火上烤所致，与产品质量无因果关系</li>
+        <li><strong>监护人责任：</strong>受害人系限制民事行为能力人，监护人未尽教育与监管义务，是事故发生的重要原因</li>
+        <li><strong>共同被告卢星明：</strong>明知收受大量烟花存在安全隐患，未妥善看管，依民法典第 1241 条应承担侵权责任</li>
+        <li><strong>共同被告葛道银：</strong>作为赠予方明知烟花危险性，送出后未尽警示义务，依民法典第 1165 条具有过错</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 起诉状 -->
+  <div class="work-card fade">
+    <div class="work-top">
+      <div>
+        <div class="work-tag">民事起诉状 · 原告方视角</div>
+        <h2 class="work-title">超市菜刀伤人案 · 起诉状</h2>
+        <p class="work-subtitle">产品缺陷责任 · 一般过失侵权 · 双重请求权基础</p>
+        <p class="work-desc">
+          原告王某于家乐福结账后被他人购买的未包装菜刀割伤，造成永久性瘢痕及误工损失。
+          以产品缺陷责任与一般过失侵权为双重请求权基础，要求两被告连带赔偿共计人民币 125,000 元。
+        </p>
+        <a class="dl-btn" href="超市菜刀案起诉状.docx" download>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+          下载起诉状 DOCX
+        </a>
+      </div>
+      <div class="work-meta">
+        <span class="work-year">2023</span>
+        <span class="work-lang">中文</span>
+      </div>
+    </div>
+
+    <div class="logic-block">
+      <div class="logic-label">双重请求权结构</div>
+      <ol class="logic-steps">
+        <li><strong>被告一（家乐福）· 产品缺陷责任：</strong>销售未经安全包装的危险菜刀，违反《产品质量法》第 42 条及民法典第 1203(2) 条，应对消费者人身损害承担赔偿责任</li>
+        <li><strong>被告二（陈某）· 一般过失侵权：</strong>明知购物袋内有锐器且包装不完善，未尽合理注意义务，在公共场所致他人受伤，依民法典第 1165、995 条承担过错责任</li>
+        <li><strong>赔偿项目：</strong>医疗费及营养费 ¥5,000 + 误工费 ¥20,000（月薪 ¥20,000，治疗期一个月）+ 祛疤费用 ¥100,000，合计 ¥125,000</li>
+      </ol>
+    </div>
+  </div>
+
+</main>
+
+<div class="about-wrap" id="about">
+  <div class="sec-header fade">
+    <div class="sec-label">03 · 关于</div>
+    <div class="sec-title">Yajuan Zhang · 张疋娟</div>
+  </div>
+  <p class="fade" style="font-size:15px;color:var(--ink2);line-height:2;max-width:620px;padding-top:8px;">
+    对争议解决的兴趣来自模拟法庭和真实诉讼实习的双重积累。本科担任模拟法庭队长，
+    在晋城市人民法院第七审判庭独立起草逾 20 份裁判文书，
+    在晋城市人民检察院参与千万元集资诈骗案资金流水梳理。
+    现就读于布里斯托大学国际商法方向，持法律职业资格（A类）、
+    CIPP/E 及 PTE 74（雅思同等 7.5–8.0）。
+    <br><br>
+    联系方式：<a href="mailto:z_yajuanlaw@163.com" style="color:var(--red);text-decoration:none;">z_yajuanlaw@163.com</a>
+    &nbsp;·&nbsp; +86 157 3560 0523
+  </p>
+</div>
+
+<footer>
+  <span class="footer-name">张疋娟 · Yajuan Zhang</span>
+  <div class="footer-contact">
+    <a href="mailto:z_yajuanlaw@163.com">z_yajuanlaw@163.com</a><br>
+    Legal Writing Portfolio · 2026
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
